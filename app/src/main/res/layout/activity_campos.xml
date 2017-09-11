@@ -99,8 +99,8 @@
         android:id="@+id/button"
         android:layout_width="150sp"
         android:layout_height="wrap_content"
-        android:layout_marginRight="102dp"
-        android:layout_marginTop="177dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginTop="170dp"
         android:background="@color/colorAccent"
 
         android:onClick="onclickbotonlog"
@@ -109,5 +109,17 @@
         android:textSize="20sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:layout_width="120sp"
+        android:layout_height="wrap_content"
+        android:text="GUARDAR"
+        android:background="@color/colorAccent"
+        android:textColor="#FFF"
+        android:layout_marginLeft="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="170dp"
+        android:textSize="20sp"/>
 
 </android.support.constraint.ConstraintLayout>

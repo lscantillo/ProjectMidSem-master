@@ -4,15 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.uninorte.projectmidsem.rubricas">
-
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RUBRICAS"
-        android:textColor="#000"
-        android:textSize="25sp"/>
+        android:layout_marginLeft="76dp"
+
+        android:layout_marginTop="16dp"
+        android:text="AGREGAR RUBRICAS"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Niveles (L): 4"
+        android:layout_marginLeft="152dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="46dp"
+        android:textColor="#FFF"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categorias"
+        android:textSize="20sp"
+        android:textColor="#FFF"
+        android:layout_marginLeft="143dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="77dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Número Categorias: "
+        android:layout_marginLeft="16dp"
+        android:textSize="20dp"
+        android:textColor="#FFF"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="112dp" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Numero"
+        android:textColorHint="#FFF"
+        android:layout_marginLeft="209dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="101dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aceptar"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:background="@color/colorAccent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="101dp"
+        android:layout_marginLeft="221dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>

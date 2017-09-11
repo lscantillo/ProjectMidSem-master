@@ -58,18 +58,38 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         expandableList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
+                int in_hd = i;
+                int in_cd = i1;
+                switch (in_hd) {
+                    case 0:
+                        switch (in_cd) {
+                            case 0:
 
-
-
-                Log.d("DEBUG", "submenu item clicked");
+                                break;
+                            case 1:
+                                break;
+                        }
+                        break;
+                    case 1:
+                        switch (in_cd) {
+                            case 0:
+                                Intent in = new Intent(MainActivity.this, rubricas.class);
+                                startActivity(in);
+                                break;
+                            case 1:
+                                break;
+                        }
+                        break;
+                }
+                Log.d("DEBUG", "submenu item clicked " + in_hd + " " + in_cd + " ");
                 return false;
             }
         });
+
+
         expandableList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
-                Intent in = new Intent(MainActivity.this, rubricas.class);
-                startActivity(in);
                 Log.d("DEBUG", "heading clicked");
                 return false;
             }
@@ -115,33 +135,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         ExpandedMenuModel item1 = new ExpandedMenuModel();
         item1.setIconName("Asignaturas");
-        item1.setIconImg(android.R.drawable.ic_input_get);
+        item1.setIconImg(R.drawable.ic_subject);
         // Adding data header
         listDataHeader.add(item1);
 
         ExpandedMenuModel item2 = new ExpandedMenuModel();
         item2.setIconName("Rubricas");
-        item2.setIconImg(android.R.drawable.ic_input_get);
+        item2.setIconImg(R.drawable.ic_assessment);
         listDataHeader.add(item2);
 
         ExpandedMenuModel item3 = new ExpandedMenuModel();
-        item3.setIconName("heading3");
-        item3.setIconImg(android.R.drawable.ic_input_get);
+        item3.setIconName("Evaluaciones");
+        item3.setIconImg(R.drawable.ic_student);
         listDataHeader.add(item3);
 
         // Adding child data
         List<String> heading1 = new ArrayList<>();
-        heading1.add("Estudiantes");
+        heading1.add("Agregar asignatura");
+        heading1.add("Ver asignatura");
 
         List<String> heading2 = new ArrayList<>();
-        heading2.add("Rubrica 1");
-        heading2.add("Rubrica 2");
-        heading2.add("Rubrica 3");
+        heading2.add("Agregar rubricas");
+        heading2.add("Ver rubricas");
 
         List<String> heading3 = new ArrayList<>();
-        heading3.add("Rubrica 1");
-        heading3.add("Rubrica 2");
-        heading3.add("Rubrica 3");
+        heading3.add("Ver lista");
+        heading3.add("Opcion 2");
+        heading3.add("Opcion 3");
+
+
 
         listDataChild.put(listDataHeader.get(0), heading1);// Header, Child data
         listDataChild.put(listDataHeader.get(1), heading2);
