@@ -58,11 +58,9 @@ public class MainActivity extends AppCompatActivity  {
         expandableList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
-                int in_hd = i;
-                int in_cd = i1;
-                switch (in_hd) {
+                switch (i) {
                     case 0:
-                        switch (in_cd) {
+                        switch (i1) {
                             case 0:
                                 Log.d("DEBUG", "Hicieron click en agregar asignaturas");
                                 break;
@@ -72,7 +70,7 @@ public class MainActivity extends AppCompatActivity  {
                         }
                         break;
                     case 1:
-                        switch (in_cd) {
+                        switch (i1) {
                             case 0:
                                 Intent in = new Intent(MainActivity.this, rubricas.class);
                                 startActivity(in);
@@ -82,7 +80,7 @@ public class MainActivity extends AppCompatActivity  {
                         }
                         break;
                 }
-                Log.d("DEBUG", "submenu item clicked " + in_hd + " " + in_cd + " ");
+                Log.d("DEBUG", "submenu item clicked " + i + " " + i1 + " ");
                 return false;
             }
         });
@@ -161,11 +159,8 @@ public class MainActivity extends AppCompatActivity  {
         heading2.add("Ver rubricas");
 
         List<String> heading3 = new ArrayList<>();
-        heading3.add("Ver lista");
+        heading3.add("Ver evaluaciones");
         heading3.add("Opcion 2");
-        heading3.add("Opcion 3");
-
-
 
         listDataChild.put(listDataHeader.get(0), heading1);// Header, Child data
         listDataChild.put(listDataHeader.get(1), heading2);
