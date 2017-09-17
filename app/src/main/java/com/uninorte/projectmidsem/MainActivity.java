@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity  {
 
     DrawerLayout mDrawerLayout;
     ExpandableListAdapter mMenuAdapter;
@@ -64,9 +64,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     case 0:
                         switch (in_cd) {
                             case 0:
-
+                                Log.d("DEBUG", "Hicieron click en agregar asignaturas");
                                 break;
                             case 1:
+                                Log.d("DEBUG", "Hicieron click en ver asignaturas");
                                 break;
                         }
                         break;
@@ -125,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+//        navigationView.setNavigationItemSelectedListener(this);
     }
 
 
@@ -146,16 +147,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         ExpandedMenuModel item3 = new ExpandedMenuModel();
         item3.setIconName("Evaluaciones");
-        item3.setIconImg(R.drawable.ic_student);
+        item3.setIconImg(R.drawable.ic_evaluation);
         listDataHeader.add(item3);
 
         // Adding child data
         List<String> heading1 = new ArrayList<>();
         heading1.add("Agregar asignatura");
         heading1.add("Ver asignatura");
+        heading1.add("Asignar evaluación");
 
         List<String> heading2 = new ArrayList<>();
-        heading2.add("Agregar rubricas");
+        heading2.add("Crear rubricas");
         heading2.add("Ver rubricas");
 
         List<String> heading3 = new ArrayList<>();
@@ -215,28 +217,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
 
-        if (id == R.id.nav_subject) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 }

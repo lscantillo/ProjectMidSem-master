@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".campos" />
-        <activity android:name=".rubricas"></activity>
+        <activity android:name=".rubricas" />
+        <activity android:name=".categorias"></activity>
     </application>
 
 </manifest>
