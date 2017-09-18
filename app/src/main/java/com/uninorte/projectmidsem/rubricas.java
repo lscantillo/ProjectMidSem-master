@@ -30,12 +30,12 @@ public class rubricas extends MainActivity {
             @Override
             public void onClick(View view) {
 
-                SQLiteDatabase sqLiteDatabase= rubricasdb.getWritableDatabase();
+                /*SQLiteDatabase sqLiteDatabase= rubricasdb.getWritableDatabase();
                 ContentValues values = new ContentValues();
                 values.put(dbrubricas.FeedEntry.TABLE_NAME,etnombreRub.getText().toString());
                 values.put(dbrubricas.FeedEntry.COLUMN_NAME_CATEGORIAS,etnumcat.getText().toString());
                 long newRowId = sqLiteDatabase.insert(dbrubricas.FeedEntry.TABLE_NAME,dbrubricas.FeedEntry.TABLE_NAME,values);
-                Toast.makeText(getApplicationContext(),"Se guardó el dato: "+ newRowId,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Se guardó el dato: "+ newRowId,Toast.LENGTH_LONG).show();*/
                 Intent rub = new Intent(rubricas.this, categorias.class);
                 startActivity(rub);
             }

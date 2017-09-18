@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        frameLayout = (FrameLayout)findViewById(R.id.principal);
+        frameLayout = (FrameLayout) findViewById(R.id.principal);
         expandableList = (ExpandableListView) findViewById(R.id.navigation_menu);
 
         prepareListData();

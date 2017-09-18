@@ -7,7 +7,9 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.uninorte.projectmidsem.MainActivity"
     tools:showIn="@layout/app_bar_main"
-    android:orientation="vertical">
+    android:orientation="vertical"
+
+    >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+
             android:id="@+id/principal">
 
 
@@ -27,3 +30,13 @@
     </ScrollView>
 
 </LinearLayout>
+
+<!--<FrameLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--android:orientation="vertical"-->
+
+<!--android:id="@+id/principal">-->
+
+<!--</FrameLayout>-->
