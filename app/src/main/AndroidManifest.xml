@@ -19,9 +19,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".campos" />
-        <activity android:name=".rubricas" />
-        <activity android:name=".categorias"></activity>
+        <activity android:name=".CreateSubject"
+            android:label="@string/subject_item1"
+            android:theme="@style/AppTheme.NoActionBar"
+            >
+
+            </activity>
+        <activity android:name=".rubricas"
+            android:label="@string/subject_item4"
+            android:theme="@style/AppTheme.NoActionBar"
+            >
+            </activity>
     </application>
 
 </manifest>
