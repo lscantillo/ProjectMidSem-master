@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class rubricas extends AppCompatActivity {
+public class rubricas extends MainActivity {
 
     Button aceptarRub;
     EditText etnumcat,etnombreRub;
@@ -19,7 +19,8 @@ public class rubricas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rubricas);
+        getLayoutInflater().inflate(R.layout.activity_rubricas, frameLayout);
+
         aceptarRub= (Button) findViewById(R.id.btnaceptarRub);
         etnumcat= (EditText) findViewById(R.id.numcat);
         etnombreRub= (EditText) findViewById(R.id.nombrerubrica);
@@ -28,15 +29,15 @@ public class rubricas extends AppCompatActivity {
         aceptarRub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 SQLiteDatabase sqLiteDatabase= rubricasdb.getWritableDatabase();
                 ContentValues values = new ContentValues();
                 values.put(dbrubricas.FeedEntry.TABLE_NAME,etnombreRub.getText().toString());
                 values.put(dbrubricas.FeedEntry.COLUMN_NAME_CATEGORIAS,etnumcat.getText().toString());
                 long newRowId = sqLiteDatabase.insert(dbrubricas.FeedEntry.TABLE_NAME,dbrubricas.FeedEntry.TABLE_NAME,values);
-                Toast.makeText(getApplicationContext(),"Se guardó el dato: " + newRowId,Toast.LENGTH_LONG).show();
-                Intent rub = new Intent(rubricas.this,categorias.class);
+                Toast.makeText(getApplicationContext(),"Se guardó el dato: "+ newRowId,Toast.LENGTH_LONG).show();
+                Intent rub = new Intent(rubricas.this, categorias.class);
                 startActivity(rub);
-
             }
         });
 
