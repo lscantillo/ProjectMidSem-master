@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -28,6 +29,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity  {
 
+    protected FrameLayout frameLayout;
     DrawerLayout mDrawerLayout;
     ExpandableListAdapter mMenuAdapter;
     ExpandableListView expandableList;
@@ -42,11 +44,12 @@ public class MainActivity extends AppCompatActivity  {
     int i=0;
 
     // Toca agregar la clase rubricas a la ejecución.
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
+        frameLayout = (FrameLayout)findViewById(R.id.principal);
         expandableList = (ExpandableListView) findViewById(R.id.navigation_menu);
 
         prepareListData();
@@ -62,6 +65,8 @@ public class MainActivity extends AppCompatActivity  {
                     case 0:
                         switch (i1) {
                             case 0:
+                                Intent in1 = new Intent(MainActivity.this, CreateSubject.class);
+                                startActivity(in1);
                                 Log.d("DEBUG", "Hicieron click en agregar asignaturas");
                                 break;
                             case 1:
@@ -72,8 +77,9 @@ public class MainActivity extends AppCompatActivity  {
                     case 1:
                         switch (i1) {
                             case 0:
-                                Intent in = new Intent(MainActivity.this, rubricas.class);
-                                startActivity(in);
+                                Intent in2 = new Intent(MainActivity.this, rubricas.class);
+                                startActivity(in2);
+                                Log.d("DEBUG", "Hicieron click en crear rubricas");
                                 break;
                             case 1:
                                 break;
@@ -99,23 +105,23 @@ public class MainActivity extends AppCompatActivity  {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        campos=(TextView) findViewById(R.id.tvcampo);
-        texto=(EditText) findViewById(R.id.ettexto);
-        lycampos=(ConstraintLayout) findViewById(R.id.camposly) ;
-        principal=(LinearLayout) findViewById(R.id.principal);
-        boton=(Button) findViewById(R.id.button);
-        num=(TextView) findViewById(R.id.numero);
+//        campos=(TextView) findViewById(R.id.tvcampo);
+//        texto=(EditText) findViewById(R.id.ettexto);
+//        lycampos=(ConstraintLayout) findViewById(R.id.camposly) ;
+//        principal=(LinearLayout) findViewById(R.id.principal);
+//        boton=(Button) findViewById(R.id.button);
+//        num=(TextView) findViewById(R.id.numero);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                lycampos = (ConstraintLayout) View.inflate(MainActivity.this,R.layout.activity_campos, null);
-                principal.addView(lycampos);
-                ((TextView) lycampos.findViewById(R.id.numero)).setText(String.valueOf(i+1));
-                i++;
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                lycampos = (ConstraintLayout) View.inflate(MainActivity.this,R.layout.activity_campos, null);
+//                principal.addView(lycampos);
+//                ((TextView) lycampos.findViewById(R.id.numero)).setText(String.valueOf(i+1));
+//                i++;
+//            }
+//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -211,6 +217,5 @@ public class MainActivity extends AppCompatActivity  {
 
 //        return super.onOptionsItemSelected(item);
     }
-
 
 }
