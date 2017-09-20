@@ -7,98 +7,37 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     tools:context="com.uninorte.projectmidsem.CreateSubject"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
 
     <!--<include-->
     <!--layout="@layout/activity_main"-->
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="match_parent" />-->
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView3"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent">
 
-
-            android:text="AGREGAR ASIGNATURAS"
-            android:textAlignment="center"
-            android:textColor="#FFF"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nombre de asignatura: "
-                android:textColor="#FFF"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/nombrerubrica"
+            <ListView
+                android:id="@+id/lista_asignatura"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:hint="Nombre"
-                android:textColor="@color/colorAccent"
-                android:textColorHint="#FFF"
-                android:textSize="14sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnEditAsg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:drawableLeft="@android:drawable/ic_menu_edit"
-                android:text="EDIT"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/btnDeleteAsg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:drawableLeft="@android:drawable/ic_delete"
-                android:text="DELETE"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnAceptarAsign"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="Aceptar"
-            android:textColor="#FFF"
-            android:textStyle="bold"
-
-            />
-
+                android:layout_height="match_parent" />
+        </ScrollView>
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btncreatesubject"
+        android:onClick="onClick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Agregar" />
 
 </LinearLayout>

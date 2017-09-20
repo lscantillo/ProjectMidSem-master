@@ -23,10 +23,9 @@ public class dbrubricas extends SQLiteOpenHelper {
         private static final String COMMA_SEP = ",";
         private static final String SQL_CREATE_ENTRIES =
                 "CREATE TABLE " + FeedEntry.TABLE_NAME + " (" +
-                        FeedEntry.TABLE_NAME +" INTEGER PRIMARY KEY," +
+                        FeedEntry.TABLE_NAME + TEXT_TYPE +COMMA_SEP+
                         FeedEntry.COLUMN_NAME_CATEGORIAS + TEXT_TYPE + COMMA_SEP +
                          " )";
-
         private static final String SQL_DELETE_ENTRIES =
                 "DROP TABLE IF EXISTS " + FeedEntry.TABLE_NAME;
 

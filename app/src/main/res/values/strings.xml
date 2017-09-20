@@ -14,5 +14,7 @@
     <string name="username">Username</string>
     <string name="user_email">username@uninorte.edu.co</string>
     <string name="user_image">user image profile</string>
+    <string name="dialogo_meg">El mensaje</string>
+    <string name="titulo">El titulo</string>
 
 </resources>

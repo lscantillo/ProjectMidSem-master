@@ -74,4 +74,6 @@ public class categorias extends MainActivity {
     protected void onStop() {
         super.onStop();
     }
+
+
 }
