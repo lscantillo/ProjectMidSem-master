@@ -19,12 +19,22 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 // Class for executing "Create Subject" activity
 public class CreateSubject extends MainActivity  {
+
+    // Make private the DataEntryDAO variable.
+    private DataEntryDAO mDataEntryDAO;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getLayoutInflater().inflate(R.layout.activity_create_subject, frameLayout);
+
+        // Calls the function from the other java file.
+        mDataEntryDAO = new DataEntryDAO(this);
+
+        List<DataEntry> entryList = mDataEntryDAO.getAllEntries();
 
 //        setContentView(R.layout.activity_create_subject);
 
@@ -56,30 +66,29 @@ public class CreateSubject extends MainActivity  {
         super.onStop();
     }
 
-
-
-
-        public void onClick(View view) {
-            AlertDialog.Builder builder =new AlertDialog.Builder(CreateSubject.this);
-            View mView = getLayoutInflater().inflate(R.layout.dialog_subject,null);
-            final EditText namesubj = mView.findViewById(R.id.etnamesubject);
-            final Button btnewsubject = mView.findViewById(R.id.btn_newsubject);
-            btnewsubject.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (!namesubj.getText().toString().isEmpty()){
-                        Toast.makeText(CreateSubject.this,"Asignatura Agregada",Toast.LENGTH_SHORT).show();
-                    }
-                    else {
-                        Toast.makeText(CreateSubject.this,"Campo vacío",Toast.LENGTH_SHORT).show();
-                    }
+    public void onClick(View view) {
+        AlertDialog.Builder builder =new AlertDialog.Builder(CreateSubject.this);
+        View mView = getLayoutInflater().inflate(R.layout.dialog_subject,null);
+        final EditText namesubj = mView.findViewById(R.id.etnamesubject);
+        final Button btnewsubject = mView.findViewById(R.id.btn_newsubject);
+        btnewsubject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!namesubj.getText().toString().isEmpty()){
+                    Toast.makeText(CreateSubject.this,"Asignatura " + namesubj.getText().toString() + " Agregada",Toast.LENGTH_SHORT).show();
+                    DataEntry de = new DataEntry(namesubj.getText().toString());
+                    mDataEntryDAO.addDataEntry(de);
                 }
-            });
-            builder.setView(mView);
-            builder.setNegativeButton(getString(android.R.string.cancel),null);
-            AlertDialog dialog= builder.create();
-            dialog.show();
-        }
+                else {
+                    Toast.makeText(CreateSubject.this,"Campo vacío",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        builder.setView(mView);
+        builder.setNegativeButton(getString(android.R.string.cancel),null);
+        AlertDialog dialog= builder.create();
+        dialog.show();
+    }
 
 
     /*public void onclicksubject(View view) {

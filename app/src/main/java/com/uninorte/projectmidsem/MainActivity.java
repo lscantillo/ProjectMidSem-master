@@ -105,23 +105,6 @@ public class MainActivity extends AppCompatActivity  {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        campos=(TextView) findViewById(R.id.tvcampo);
-//        texto=(EditText) findViewById(R.id.ettexto);
-//        lycampos=(ConstraintLayout) findViewById(R.id.camposly) ;
-//        principal=(LinearLayout) findViewById(R.id.principal);
-//        boton=(Button) findViewById(R.id.button);
-//        num=(TextView) findViewById(R.id.numero);
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                lycampos = (ConstraintLayout) View.inflate(MainActivity.this,R.layout.activity_campos, null);
-//                principal.addView(lycampos);
-//                ((TextView) lycampos.findViewById(R.id.numero)).setText(String.valueOf(i+1));
-//                i++;
-//            }
-//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
