@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.uninorte.projectmidsem.MainActivity"
-    tools:showIn="@layout/app_bar_main"
-    android:orientation="vertical"
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+    <!--tools:context="com.uninorte.projectmidsem.MainActivity"-->
+    <!--tools:showIn="@layout/app_bar_main"-->
+    <!--android:orientation="vertical"-->
 
-    >
+    <!--&gt;-->
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="UselessParent">
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--tools:ignore="UselessParent">-->
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+        <!--&lt;!&ndash;<FrameLayout&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:orientation="vertical"&ndash;&gt;-->
 
-            android:id="@+id/principal">
+            <!--&lt;!&ndash;android:id="@+id/principal">&ndash;&gt;-->
 
 
 
-        </FrameLayout>
+        <!--&lt;!&ndash;</FrameLayout>&ndash;&gt;-->
 
-    </ScrollView>
+    <!--</ScrollView>-->
 
-</LinearLayout>
+<!--</LinearLayout>-->
 
-<!--<FrameLayout-->
-    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="match_parent"-->
-<!--android:orientation="vertical"-->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
 
-<!--android:id="@+id/principal">-->
+android:id="@+id/principal">
 
-<!--</FrameLayout>-->
+</FrameLayout>

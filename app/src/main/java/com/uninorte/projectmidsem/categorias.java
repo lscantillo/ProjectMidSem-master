@@ -11,6 +11,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -39,7 +40,7 @@ public class categorias extends MainActivity {
         agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TableLayout lista = (TableLayout) findViewById(R.id.lista);
+                ListView lista = (ListView) findViewById(R.id.lista);
                 String []cadena={nombrecategorias.getText().toString(),peso.getText().toString(),elemento.getText().toString(),L1.getText().toString(),L2.getText().toString(),L3.getText().toString(),L4.getText().toString()};
 
                 TableRow row= new TableRow(getBaseContext());
