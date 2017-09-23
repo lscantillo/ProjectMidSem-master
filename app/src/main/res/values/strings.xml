@@ -16,4 +16,10 @@
     <string name="dialogo_meg">El mensaje</string>
     <string name="titulo">El titulo</string>
 
+
+    <!--String for buttons in subject_list.xml-->
+    <string name="btnAddStudentText">Botón Agregar Estudiantes</string>
+    <string name="btnRemoveStudentText">Botón Eliminar Estudiantes</string>
+    <string name="tvSubjectNameText">TextView</string>
+
 </resources>

@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -49,6 +50,8 @@ public class CreateSubject extends MainActivity  {
 
         listView.setAdapter(adapter);
 
+
+
 //        setContentView(R.layout.activity_create_subject);
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -65,8 +68,6 @@ public class CreateSubject extends MainActivity  {
 
 
     }
-
-
 
     @Override
     protected void onStop() {
@@ -91,6 +92,10 @@ public class CreateSubject extends MainActivity  {
                     Toast.makeText(CreateSubject.this,"Asignatura " + namesubj.getText().toString() + " Agregada",Toast.LENGTH_SHORT).show();
                     DataEntry de = new DataEntry(namesubj.getText().toString());
                     mDataEntryDAO.addDataEntry(de);
+                    List<DataEntry> entryList = mDataEntryDAO.getAllEntries();
+                    adapter.setData(entryList);
+                    listView.setAdapter(adapter);
+                    namesubj.setText(null);
                 }
                 else {
                     Toast.makeText(CreateSubject.this,"Campo vacío",Toast.LENGTH_SHORT).show();
@@ -116,16 +121,19 @@ public class CreateSubject extends MainActivity  {
         }
     }
 
+    public void onClickBtnDeleteSubject(View view) {
+        DataEntry dataEntry = (DataEntry) view.getTag();
+        Log.d(TAG,"Delete TAG " + dataEntry.id);
+        mDataEntryDAO.deleteEntry(dataEntry);
+        List<DataEntry> entryList = mDataEntryDAO.getAllEntries();
+        adapter.setData(entryList);
+        listView.setAdapter(adapter);
+    }
 
-    /*public void onclicksubject(View view) {
-        AlertDialog.Builder builder =new AlertDialog.Builder(CreateSubject.this);
-        final EditText namesubject = new EditText(this);
-        builder.setTitle(getString(R.string.titulo));
-        namesubject.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
-        builder.setMessage(getString(R.string.dialogo_meg));
-        builder.setPositiveButton(getString(android.R.string.ok),null);
-        builder.setNegativeButton(getString(android.R.string.cancel),null);
-        AlertDialog dialog =builder.create();
-        dialog.show();
-    }*/
+    public void onClickBtnCheckStudentList(View view) {
+        Intent std_list = new Intent(CreateSubject.this, StudentList.class);
+        startActivity(std_list);
+    }
+
+
 }
