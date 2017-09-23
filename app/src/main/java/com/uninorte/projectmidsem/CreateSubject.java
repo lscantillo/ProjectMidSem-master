@@ -1,5 +1,7 @@
 package com.uninorte.projectmidsem;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -26,15 +29,25 @@ public class CreateSubject extends MainActivity  {
 
     // Make private the DataEntryDAO variable.
     private DataEntryDAO mDataEntryDAO;
+    private String TAG = Constants.TAG;
+    private ListView listView;
+    private CustomAdapter adapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getLayoutInflater().inflate(R.layout.activity_create_subject, frameLayout);
 
+        // Get the list view id from layout
+        listView = (ListView) findViewById(R.id.lista_asignatura);
+
         // Calls the function from the other java file.
         mDataEntryDAO = new DataEntryDAO(this);
 
         List<DataEntry> entryList = mDataEntryDAO.getAllEntries();
+
+        adapter = new CustomAdapter(this, entryList);
+
+        listView.setAdapter(adapter);
 
 //        setContentView(R.layout.activity_create_subject);
 
@@ -53,17 +66,17 @@ public class CreateSubject extends MainActivity  {
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        getLayoutInflater().inflate(R.layout.activity_create_subject, frameLayout);
 
-//        setContentView(R.layout.activity_create_subject);
-    }
 
     @Override
     protected void onStop() {
         super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        mDataEntryDAO.close();
+        super.onDestroy();
     }
 
     public void onClick(View view) {
@@ -88,6 +101,19 @@ public class CreateSubject extends MainActivity  {
         builder.setNegativeButton(getString(android.R.string.cancel),null);
         AlertDialog dialog= builder.create();
         dialog.show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1){
+            if (resultCode == Activity.RESULT_OK) {
+                DataEntry de = (DataEntry) data.getSerializableExtra("entry");
+                mDataEntryDAO.addDataEntry(de);
+                List<DataEntry> entryList = mDataEntryDAO.getAllEntries();
+                adapter.setData(entryList);
+                listView.setAdapter(adapter);
+            }
+        }
     }
 
 

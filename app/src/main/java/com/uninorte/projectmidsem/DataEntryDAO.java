@@ -66,4 +66,25 @@ public class DataEntryDAO {
         // return entry list
         return entryList;
     }
+
+    // Getting entry count
+    public int getEntryCount() {
+        int count;
+        Log.d(TAG, "getEntryCount ");
+
+        String countQuery = "SELECT * FROM " + DatabaseHandler.TABLE;
+
+        Cursor cursor = mDatabase.rawQuery(countQuery, null);
+        count = cursor.getCount();
+        cursor.close();
+
+        return count;
+    }
+
+    // Deleting single entry
+    public void deleteEntry(DataEntry entry) {
+        mDatabase.delete(DatabaseHandler.TABLE, DatabaseHandler.KEY_ID + " = ?",
+                new String[] { String.valueOf(entry.id) }
+        );
+    }
 }
