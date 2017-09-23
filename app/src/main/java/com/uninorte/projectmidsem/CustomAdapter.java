@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.List;
@@ -51,6 +52,11 @@ public class CustomAdapter extends BaseAdapter {
 
         Log.d(CustomAdapter.class.getSimpleName(), "id " + entry.id);
         Log.d(CustomAdapter.class.getSimpleName(), "field1 " + entry.field1);
+
+        ImageButton btnRemoveSubject = view.findViewById(R.id.btnDeleteSubject);
+        btnRemoveSubject.setFocusableInTouchMode(false);
+        btnRemoveSubject.setFocusable(false);
+        btnRemoveSubject.setTag(entry);
 
         view.setTag(entry);
 

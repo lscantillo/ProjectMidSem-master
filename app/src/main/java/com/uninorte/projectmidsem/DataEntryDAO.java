@@ -40,6 +40,20 @@ public class DataEntryDAO {
         return index;
     }
 
+    // Adding database support to students
+    public long addDataEntryStd(DataEntryStd entry) {
+        ContentValues values = new ContentValues();
+        values.put(DatabaseHandler.KEY_FIELD1, entry.field1);
+        values.put(DatabaseHandler.KEY_FIELD1, entry.field1);
+        values.put(DatabaseHandler.KEY_FIELD1, entry.field1);
+        values.put(DatabaseHandler.KEY_FIELD1, entry.field1);
+
+        Long index = mDatabase.insert(DatabaseHandler.TABLE,null,values);
+
+        return index;
+    }
+
+
     // Getting All Entries
     public List<DataEntry> getAllEntries() {
         Log.d(TAG, "getAllEntries ");
@@ -87,4 +101,7 @@ public class DataEntryDAO {
                 new String[] { String.valueOf(entry.id) }
         );
     }
+
+    //
+
 }
