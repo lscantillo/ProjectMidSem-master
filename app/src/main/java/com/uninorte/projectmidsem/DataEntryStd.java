@@ -1,7 +1,7 @@
 package com.uninorte.projectmidsem;
 
-public class DataEntryStd {
-    String idSubj;
+public class DataEntryStd extends DataEntry {
+    int idSubj;
     String field1;
     String field2;
     String field3;
@@ -9,7 +9,7 @@ public class DataEntryStd {
 
     public DataEntryStd() {}
 
-    public DataEntryStd(String idSubj, String field1, String field2, String field3, String field4) {
+    public DataEntryStd(int idSubj, String field1, String field2, String field3, String field4) {
         this.idSubj = idSubj;
         this.field1 = field1;
         this.field2 = field2;

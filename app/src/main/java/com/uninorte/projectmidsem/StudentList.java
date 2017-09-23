@@ -3,6 +3,7 @@ package com.uninorte.projectmidsem;
 
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,11 +18,11 @@ public class StudentList extends MainActivity {
     private DataEntryDAO mDataEntryDAO;
     private String TAG = Constants.TAG;
     private ListView listView;
-    private CustomAdapter adapter;
+    private CustomAdapterStd adapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getLayoutInflater().inflate(R.layout.student_list, frameLayout);
+        getLayoutInflater().inflate(R.layout.activity_add_student, frameLayout);
 
         // Get the list view id from layout
         listView = (ListView) findViewById(R.id.StudentList);
@@ -29,42 +30,66 @@ public class StudentList extends MainActivity {
         // Calls the function from the other java file.
         mDataEntryDAO = new DataEntryDAO(this);
 
-        List<DataEntry> entryList = mDataEntryDAO.getAllEntries();
+        List<DataEntry> entryList = mDataEntryDAO.getAllEntries(DatabaseHandler.TABLE_STD);
 
-        adapter = new CustomAdapter(this, entryList);
+        adapter = new CustomAdapterStd(this, entryList);
 
         listView.setAdapter(adapter);
 
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        mDataEntryDAO.close();
+        super.onDestroy();
+    }
+
     public void onClickBtnAddStudent(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(StudentList.this);
-        View mView = getLayoutInflater().inflate(R.layout.dialog_student,null);
-        final EditText nameStd = mView.findViewById(R.id.etNameStudent);
-        final EditText codeStd = mView.findViewById(R.id.etCodeStudent);
-        final EditText semStd = mView.findViewById(R.id.etSemStudent);
-        final EditText mailStd = mView.findViewById(R.id.etEmailStudent);
-        final Button btnNewStd = mView.findViewById(R.id.btnAddStudent);
+        View eView = getLayoutInflater().inflate(R.layout.dialog_student,null);
+        final EditText nameStd = eView.findViewById(R.id.etNameStudent);
+        final EditText codeStd = eView.findViewById(R.id.etCodeStudent);
+        final EditText semStd = eView.findViewById(R.id.etSemStudent);
+        final EditText mailStd = eView.findViewById(R.id.etEmailStudent);
+        final Button btnNewStd = eView.findViewById(R.id.btnNewStudent);
         btnNewStd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String nameStdText = nameStd.getText().toString();
-                String codeStdText = nameStd.getText().toString();
-                String semStdText = nameStd.getText().toString();
-                String mailStdText = nameStd.getText().toString();
+                String codeStdText = codeStd.getText().toString();
+                String semStdText = semStd.getText().toString();
+                String mailStdText = mailStd.getText().toString();
                 if (!nameStdText.isEmpty() && !codeStdText.isEmpty() && !semStdText.isEmpty() && !mailStdText.isEmpty()) {
                     Toast.makeText(StudentList.this,"Estudiante " + nameStdText + " Agregado",Toast.LENGTH_SHORT).show();
                     DataEntryStd dbStd = new DataEntryStd(nameStdText, codeStdText, semStdText, mailStdText);
                     mDataEntryDAO.addDataEntryStd(dbStd);
-                    List<DataEntry> entryList = mDataEntryDAO.getAllEntries();
+                    List<DataEntry> entryList = mDataEntryDAO.getAllEntries(DatabaseHandler.TABLE_STD);
                     adapter.setData(entryList);
                     listView.setAdapter(adapter);
                     nameStd.setText(null);
                 }
                 else {
-                    Toast.makeText(StudentList.this,"Campo vacío",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StudentList.this,"¡Debes completar todos los campos!",Toast.LENGTH_SHORT).show();
                 }
             }
         });
-    };
+        builder.setView(eView);
+        builder.setNegativeButton(getString(android.R.string.cancel),null);
+        AlertDialog dialog= builder.create();
+        dialog.show();
+    }
+
+    public void onClickBtnDeleteStudent(View view) {
+        DataEntryStd dataEntry = (DataEntryStd) view.getTag();
+        Log.d(TAG,"Delete TAG " + dataEntry.field1);
+        mDataEntryDAO.deleteEntryStd(dataEntry);
+        List<DataEntry> entryList = mDataEntryDAO.getAllEntries(DatabaseHandler.TABLE_STD);
+        adapter.setData(entryList);
+        listView.setAdapter(adapter);
+    }
 }

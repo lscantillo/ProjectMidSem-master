@@ -44,13 +44,11 @@ public class CreateSubject extends MainActivity  {
         // Calls the function from the other java file.
         mDataEntryDAO = new DataEntryDAO(this);
 
-        List<DataEntry> entryList = mDataEntryDAO.getAllEntries();
+        List<DataEntry> entryList = mDataEntryDAO.getAllEntries(DatabaseHandler.TABLE);
 
         adapter = new CustomAdapter(this, entryList);
 
         listView.setAdapter(adapter);
-
-
 
 //        setContentView(R.layout.activity_create_subject);
 
@@ -80,7 +78,7 @@ public class CreateSubject extends MainActivity  {
         super.onDestroy();
     }
 
-    public void onClick(View view) {
+    public void onClickCreateSubject(View view) {
         AlertDialog.Builder builder =new AlertDialog.Builder(CreateSubject.this);
         View mView = getLayoutInflater().inflate(R.layout.dialog_subject,null);
         final EditText namesubj = mView.findViewById(R.id.etnamesubject);
@@ -92,7 +90,7 @@ public class CreateSubject extends MainActivity  {
                     Toast.makeText(CreateSubject.this,"Asignatura " + namesubj.getText().toString() + " Agregada",Toast.LENGTH_SHORT).show();
                     DataEntry de = new DataEntry(namesubj.getText().toString());
                     mDataEntryDAO.addDataEntry(de);
-                    List<DataEntry> entryList = mDataEntryDAO.getAllEntries();
+                    List<DataEntry> entryList = mDataEntryDAO.getAllEntries(DatabaseHandler.TABLE);
                     adapter.setData(entryList);
                     listView.setAdapter(adapter);
                     namesubj.setText(null);
@@ -108,24 +106,24 @@ public class CreateSubject extends MainActivity  {
         dialog.show();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1){
-            if (resultCode == Activity.RESULT_OK) {
-                DataEntry de = (DataEntry) data.getSerializableExtra("entry");
-                mDataEntryDAO.addDataEntry(de);
-                List<DataEntry> entryList = mDataEntryDAO.getAllEntries();
-                adapter.setData(entryList);
-                listView.setAdapter(adapter);
-            }
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        if (requestCode == 1){
+//            if (resultCode == Activity.RESULT_OK) {
+//                DataEntry de = (DataEntry) data.getSerializableExtra("entry");
+//                mDataEntryDAO.addDataEntry(de);
+//                List<DataEntry> entryList = mDataEntryDAO.getAllEntries();
+//                adapter.setData(entryList);
+//                listView.setAdapter(adapter);
+//            }
+//        }
+//    }
 
     public void onClickBtnDeleteSubject(View view) {
         DataEntry dataEntry = (DataEntry) view.getTag();
         Log.d(TAG,"Delete TAG " + dataEntry.id);
         mDataEntryDAO.deleteEntry(dataEntry);
-        List<DataEntry> entryList = mDataEntryDAO.getAllEntries();
+        List<DataEntry> entryList = mDataEntryDAO.getAllEntries(DatabaseHandler.TABLE);
         adapter.setData(entryList);
         listView.setAdapter(adapter);
     }

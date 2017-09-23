@@ -20,7 +20,9 @@
 
     <!--String for buttons in subject_list.xml-->
     <string name="btnAddStudentText">Botón Agregar Estudiantes</string>
+    <string name="btnRemoveSubjectText">Botón Eliminar Asignatura</string>
     <string name="btnRemoveStudentText">Botón Eliminar Estudiantes</string>
     <string name="tvSubjectNameText">TextView</string>
+    <string name="tvGenericTextView">TextView</string>
 
 </resources>

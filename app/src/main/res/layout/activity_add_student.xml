@@ -10,13 +10,6 @@
     tools:context="com.uninorte.projectmidsem.CreateSubject"
     android:orientation="vertical">
 
-
-    <!--<include-->
-    <!--layout="@layout/activity_main"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent" />-->
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -24,7 +17,7 @@
         android:orientation="horizontal">
 
         <ListView
-            android:id="@+id/lista_asignatura"
+            android:id="@+id/StudentList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:footerDividersEnabled="false"
@@ -33,11 +26,11 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btncreatesubject"
+        android:id="@+id/btnAddStudent"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClickCreateSubject"
+        android:onClick="onClickBtnAddStudent"
         android:text="Agregar" />
 
 </LinearLayout>

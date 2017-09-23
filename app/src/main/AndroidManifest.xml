@@ -21,26 +21,21 @@
         </activity>
         <activity android:name=".CreateSubject"
             android:label="@string/subject_item1"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
-
-            </activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".rubricas"
             android:label="@string/subject_item4"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
-            </activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
         <activity android:name=".categorias"
             android:label="@string/subject_item10"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity android:name=".StudentList"
             android:label="Lista Estudiantes"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
     </application>
