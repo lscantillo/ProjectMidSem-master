@@ -3,10 +3,6 @@ package com.uninorte.projectmidsem;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -35,21 +31,13 @@ public class MainActivity extends AppCompatActivity  {
     ExpandableListView expandableList;
     List<ExpandedMenuModel> listDataHeader;
     HashMap<ExpandedMenuModel, List<String>> listDataChild;
-    TextView campos;
-    EditText texto;
-    ConstraintLayout lycampos;
-    LinearLayout principal;
-    Button boton;
-    TextView num;
-    int i=0;
-
-    // Toca agregar la clase rubricas a la ejecución.
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         frameLayout = (FrameLayout) findViewById(R.id.principal);
+        getLayoutInflater().inflate(R.layout.main_menu_welcome, frameLayout);
         expandableList = (ExpandableListView) findViewById(R.id.navigation_menu);
 
         prepareListData();
@@ -65,11 +53,13 @@ public class MainActivity extends AppCompatActivity  {
                     case 0:
                         switch (i1) {
                             case 0:
-                                Intent in1 = new Intent(MainActivity.this, CreateSubject.class);
-                                startActivity(in1);
+                                Intent in00 = new Intent(MainActivity.this, CreateSubject.class);
+                                startActivity(in00);
 //                                Log.d("DEBUG", "Hicieron click en agregar asignaturas");
                                 break;
                             case 1:
+                                Intent in01 = new Intent(MainActivity.this, StudentListByUser.class);
+                                startActivity(in01);
 //                                Log.d("DEBUG", "Hicieron click en ver asignaturas");
                                 break;
                         }
@@ -77,9 +67,9 @@ public class MainActivity extends AppCompatActivity  {
                     case 1:
                         switch (i1) {
                             case 0:
-                                Intent in2 = new Intent(MainActivity.this, rubricas.class);
-                                startActivity(in2);
-//                                Log.d("DEBUG", "Hicieron click en crear rubricas");
+                                Intent in10 = new Intent(MainActivity.this, Activity_Create_Rubric.class);
+                                startActivity(in10);
+//                                Log.d("DEBUG", "Hicieron click en crear Activity_Create_Rubric");
                                 break;
                             case 1:
                                 break;
@@ -91,7 +81,6 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
-
         expandableList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
@@ -99,8 +88,6 @@ public class MainActivity extends AppCompatActivity  {
                 return false;
             }
         });
-
-
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -115,7 +102,6 @@ public class MainActivity extends AppCompatActivity  {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         //navigationView.setNavigationItemSelectedListener(this);
     }
-
 
     private void prepareListData() {
         listDataHeader = new ArrayList<>();
@@ -140,23 +126,21 @@ public class MainActivity extends AppCompatActivity  {
         // Adding child data
         List<String> heading1 = new ArrayList<>();
         heading1.add("Agregar asignatura");
-        heading1.add("Ver asignatura");
+        heading1.add("Lista estudiantes");
         heading1.add("Asignar evaluación");
 
         List<String> heading2 = new ArrayList<>();
-        heading2.add("Crear rubricas");
-        heading2.add("Ver rubricas");
+        heading2.add("Crear Activity_Create_Rubric");
+        heading2.add("Lista Activity_Create_Rubric");
 
         List<String> heading3 = new ArrayList<>();
-        heading3.add("Ver evaluaciones");
+        heading3.add("Opcion 1");
         heading3.add("Opcion 2");
 
         listDataChild.put(listDataHeader.get(0), heading1);// Header, Child data
         listDataChild.put(listDataHeader.get(1), heading2);
         listDataChild.put(listDataHeader.get(2), heading3);
-
     }
-
 
     @Override
     public void onBackPressed() {
@@ -171,7 +155,7 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+//        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
