@@ -32,7 +32,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public int getGroupCount() {
         int i = mListDataHeader.size();
-        Log.d("GROUPCOUNT", String.valueOf(i));
+//        Log.d("GROUPCOUNT", String.valueOf(i));
         return this.mListDataHeader.size();
     }
 

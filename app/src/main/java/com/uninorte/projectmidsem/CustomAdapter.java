@@ -58,6 +58,11 @@ public class CustomAdapter extends BaseAdapter {
         btnRemoveSubject.setFocusable(false);
         btnRemoveSubject.setTag(entry);
 
+        ImageButton btnCheckStudent = view.findViewById(R.id.btnCheckStudentList);
+        btnCheckStudent.setFocusableInTouchMode(false);
+        btnCheckStudent.setFocusable(false);
+        btnCheckStudent.setTag(entry);
+
         view.setTag(entry);
 
         return view;

@@ -1,26 +1,13 @@
 package com.uninorte.projectmidsem;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.text.InputType;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -49,21 +36,6 @@ public class CreateSubject extends MainActivity  {
         adapter = new CustomAdapter(this, entryList);
 
         listView.setAdapter(adapter);
-
-//        setContentView(R.layout.activity_create_subject);
-
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//
-//        toggle.syncState();
-//
-//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-
-
-
 
     }
 
@@ -129,7 +101,12 @@ public class CreateSubject extends MainActivity  {
     }
 
     public void onClickBtnCheckStudentList(View view) {
+        DataEntry dataEntry = (DataEntry) view.getTag();
+        Log.d(TAG,"Selected ID ROW "+ dataEntry.field1 );
+        String subjectName = dataEntry.field1;
+//        DataEntry nm = mDataEntryDAO.getDataEntry(dataEntry.id, DatabaseHandler.TABLE, DatabaseHandler.KEY_ID, DatabaseHandler.KEY_FIELD1);
         Intent std_list = new Intent(CreateSubject.this, StudentList.class);
+        std_list.putExtra("SubjectName", subjectName);
         startActivity(std_list);
     }
 

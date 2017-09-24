@@ -21,6 +21,19 @@
                 android:id="@+id/tvStudentName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/tvGenericTextView"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:ignore="NestedWeights" />
+
+            <TextView
+                android:id="@+id/tvStudentSubj"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:fontFamily="sans-serif"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/tvGenericTextView"

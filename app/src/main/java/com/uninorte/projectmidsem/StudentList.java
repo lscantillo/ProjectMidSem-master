@@ -23,6 +23,9 @@ public class StudentList extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getLayoutInflater().inflate(R.layout.activity_add_student, frameLayout);
+        String subjectName = getIntent().getStringExtra("SubjectName");
+
+        Log.d(TAG, " NOMBRE MATERIA " + subjectName);
 
         // Get the list view id from layout
         listView = (ListView) findViewById(R.id.StudentList);
@@ -52,6 +55,7 @@ public class StudentList extends MainActivity {
     public void onClickBtnAddStudent(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(StudentList.this);
         View eView = getLayoutInflater().inflate(R.layout.dialog_student,null);
+        final String subjectName = getIntent().getStringExtra("SubjectName");
         final EditText nameStd = eView.findViewById(R.id.etNameStudent);
         final EditText codeStd = eView.findViewById(R.id.etCodeStudent);
         final EditText semStd = eView.findViewById(R.id.etSemStudent);
@@ -66,12 +70,15 @@ public class StudentList extends MainActivity {
                 String mailStdText = mailStd.getText().toString();
                 if (!nameStdText.isEmpty() && !codeStdText.isEmpty() && !semStdText.isEmpty() && !mailStdText.isEmpty()) {
                     Toast.makeText(StudentList.this,"Estudiante " + nameStdText + " Agregado",Toast.LENGTH_SHORT).show();
-                    DataEntryStd dbStd = new DataEntryStd(nameStdText, codeStdText, semStdText, mailStdText);
+                    DataEntryStd dbStd = new DataEntryStd(subjectName, nameStdText, codeStdText, semStdText, mailStdText);
                     mDataEntryDAO.addDataEntryStd(dbStd);
                     List<DataEntry> entryList = mDataEntryDAO.getAllEntries(DatabaseHandler.TABLE_STD);
                     adapter.setData(entryList);
                     listView.setAdapter(adapter);
                     nameStd.setText(null);
+                    codeStd.setText(null);
+                    semStd.setText(null);
+                    mailStd.setText(null);
                 }
                 else {
                     Toast.makeText(StudentList.this,"¡Debes completar todos los campos!",Toast.LENGTH_SHORT).show();
@@ -86,7 +93,7 @@ public class StudentList extends MainActivity {
 
     public void onClickBtnDeleteStudent(View view) {
         DataEntryStd dataEntry = (DataEntryStd) view.getTag();
-        Log.d(TAG,"Delete TAG " + dataEntry.field1);
+        Toast.makeText(StudentList.this,"Estudiante " + dataEntry.field2 + " Eliminado",Toast.LENGTH_SHORT).show();
         mDataEntryDAO.deleteEntryStd(dataEntry);
         List<DataEntry> entryList = mDataEntryDAO.getAllEntries(DatabaseHandler.TABLE_STD);
         adapter.setData(entryList);

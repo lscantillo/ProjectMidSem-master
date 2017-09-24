@@ -43,6 +43,7 @@ public class DataEntryDAO {
     // Adding database support to students
     public long addDataEntryStd(DataEntryStd entry) {
         ContentValues values = new ContentValues();
+        values.put(DatabaseHandler.KEY_FIELD_SUBJECT, entry.field0);
         values.put(DatabaseHandler.KEY_FIELD_STDNAME, entry.field1);
         values.put(DatabaseHandler.KEY_FIELD_STDCODE, entry.field2);
         values.put(DatabaseHandler.KEY_FIELD_STDSEM, entry.field3);
@@ -84,6 +85,7 @@ public class DataEntryDAO {
                     do {
                         DataEntryStd entry = new DataEntryStd();
                         entry.idSubj = Integer.parseInt(cursor.getString(0));
+                        entry.field0 = cursor.getString(0);
                         entry.field1 = cursor.getString(1);
                         entry.field2 = cursor.getString(2);
                         entry.field3 = cursor.getString(3);
@@ -122,6 +124,35 @@ public class DataEntryDAO {
         cursor.close();
 
         return count;
+    }
+
+    // Getting specific entry
+    public DataEntry getDataEntry(int id, String table_name, String key_id, String key_field) {
+
+        Log.d(TAG, "getDataEntry " + id);
+
+        Cursor cursor = mDatabase.query(
+                table_name,
+                new String[] { key_id, key_field},
+                key_id + "=?",
+                new String[] { String.valueOf(id) },
+                null,
+                null,
+                null,
+                null
+        );
+
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        DataEntry entry = new DataEntry(
+                Integer.parseInt(cursor.getString(0)),
+                (cursor.getString(1)));
+
+        Log.d(TAG,"getDataEntry " + entry);
+
+        cursor.close();
+        return entry;
     }
 
     // Deleting single entry
