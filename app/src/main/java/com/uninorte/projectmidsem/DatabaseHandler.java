@@ -24,7 +24,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public static final String KEY_FIELD1 = "subjectName";
 
     // Table Columns Names for Students
-    public static final String KEY_ID_STD = "studentSubjectID";
+    public static final String KEY_ID_STD = "studentId";
+    public static final String KEY_FIELD_SUBJECT = "studentSubjectId";
     public static final String KEY_FIELD_STDNAME = "studentName";
     public static final String KEY_FIELD_STDCODE = "studentCode";
     public static final String KEY_FIELD_STDSEM = "studentSem";
@@ -42,10 +43,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // SQL Sentence for create the table
         String CREATE_TABLE = "CREATE TABLE " + TABLE + " (" +
                 KEY_ID + " integer primary key," + KEY_FIELD1 + " integer" + ") ";
-        String CREATE_TABLE_STD = "CREATE TABLE " + TABLE_STD + " (" +
-                KEY_ID_STD + " integer primary key," + KEY_FIELD_STDNAME + " integer,"
-                + KEY_FIELD_STDCODE + " integer," + KEY_FIELD_STDSEM + " integer,"
-                + KEY_FIELD_STDMAIL + " integer" + ") ";
+        String CREATE_TABLE_STD = "CREATE TABLE " + TABLE_STD + " (" + KEY_ID_STD
+                + " integer primary key," + KEY_FIELD_SUBJECT
+                + " integer," + KEY_FIELD_STDNAME + " integer," + KEY_FIELD_STDCODE
+                + " integer," + KEY_FIELD_STDSEM + " integer,"  + KEY_FIELD_STDMAIL
+                + " integer" + ") ";
         if (db.isOpen()){
             db.execSQL(CREATE_TABLE);
             db.execSQL(CREATE_TABLE_STD);

@@ -45,8 +45,10 @@ public class CustomAdapterStd extends BaseAdapter {
         }
 
         TextView f1 = view.findViewById(R.id.tvStudentName);
+        TextView f2 = view.findViewById(R.id.tvStudentSubj);
 
         f1.setText(String.valueOf(entry.field1));
+        f2.setText(String.valueOf(entry.field2));
 
         ImageButton btnRemoveSubject = view.findViewById(R.id.btnDeleteStudent);
         btnRemoveSubject.setFocusableInTouchMode(false);

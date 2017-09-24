@@ -67,10 +67,10 @@ public class MainActivity extends AppCompatActivity  {
                             case 0:
                                 Intent in1 = new Intent(MainActivity.this, CreateSubject.class);
                                 startActivity(in1);
-                                Log.d("DEBUG", "Hicieron click en agregar asignaturas");
+//                                Log.d("DEBUG", "Hicieron click en agregar asignaturas");
                                 break;
                             case 1:
-                                Log.d("DEBUG", "Hicieron click en ver asignaturas");
+//                                Log.d("DEBUG", "Hicieron click en ver asignaturas");
                                 break;
                         }
                         break;
@@ -79,14 +79,14 @@ public class MainActivity extends AppCompatActivity  {
                             case 0:
                                 Intent in2 = new Intent(MainActivity.this, rubricas.class);
                                 startActivity(in2);
-                                Log.d("DEBUG", "Hicieron click en crear rubricas");
+//                                Log.d("DEBUG", "Hicieron click en crear rubricas");
                                 break;
                             case 1:
                                 break;
                         }
                         break;
                 }
-                Log.d("DEBUG", "submenu item clicked " + i + " " + i1 + " ");
+//                Log.d("DEBUG", "submenu item clicked " + i + " " + i1 + " ");
                 return false;
             }
         });
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity  {
         expandableList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
-                Log.d("DEBUG", "heading clicked");
+//                Log.d("DEBUG", "heading clicked");
                 return false;
             }
         });
