@@ -12,14 +12,14 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText et1,et2,et3;
+    private AppLoginEditTextFont et1,et2,et3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        et1=(EditText)findViewById(R.id.et1);
-        et2=(EditText)findViewById(R.id.et2);
-        et3=(EditText)findViewById(R.id.et3);
+        et1 = (AppLoginEditTextFont) findViewById(R.id.et1);
+        et2 = (AppLoginEditTextFont) findViewById(R.id.et2);
+        et3 = (AppLoginEditTextFont) findViewById(R.id.et3);
 
     }
 
@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         SQLiteDatabase bd10 = admin.getWritableDatabase();
         String cod = et1.getText().toString();
         Cursor fila = bd10.rawQuery(
-                "select descripcion,precio from articulos where codigo=" + cod, null);
+                "select descripcion, precio from articulos where codigo=" + cod, null);
         if (fila.moveToFirst()) {
             Intent i = new Intent(this,MainActivity.class);
             startActivity(i);
