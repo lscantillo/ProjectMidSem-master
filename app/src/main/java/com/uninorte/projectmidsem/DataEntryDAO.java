@@ -108,7 +108,6 @@ public class DataEntryDAO {
 //
 //        cursor.close();
 //
-        // return entry list
         return entryList;
     }
 
@@ -168,6 +167,34 @@ public class DataEntryDAO {
         );
     }
 
-    //
+    // Query student list based on subject name column
+    public List<DataEntry> selectStudentBySubject(String table_name, String rowName, String rowQuery) {
+        Log.d(TAG, "get student list of subject: " + rowName);
+
+        List<DataEntry> entryList = new ArrayList<>();
+
+        // select All Querry
+        String selectQuery = "SELECT * FROM " + table_name + " WHERE " + rowName + "='" + rowQuery + "'";
+
+        Cursor cursor = mDatabase.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                DataEntryStd entry = new DataEntryStd();
+                entry.idSubj = Integer.parseInt(cursor.getString(0));
+                entry.field0 = cursor.getString(0);
+                entry.field1 = cursor.getString(1);
+                entry.field2 = cursor.getString(2);
+                entry.field3 = cursor.getString(3);
+                entry.field4 = cursor.getString(4);
+                entryList.add(entry);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+
+        return entryList;
+    }
+
 
 }

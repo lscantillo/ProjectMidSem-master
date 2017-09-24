@@ -33,8 +33,8 @@ public class StudentList extends MainActivity {
         // Calls the function from the other java file.
         mDataEntryDAO = new DataEntryDAO(this);
 
-        List<DataEntry> entryList = mDataEntryDAO.getAllEntries(DatabaseHandler.TABLE_STD);
-
+//        List<DataEntry> entryList = mDataEntryDAO.getAllEntries(DatabaseHandler.TABLE_STD);
+        List<DataEntry> entryList = mDataEntryDAO.selectStudentBySubject(DatabaseHandler.TABLE_STD, DatabaseHandler.KEY_FIELD_SUBJECT, subjectName);
         adapter = new CustomAdapterStd(this, entryList);
 
         listView.setAdapter(adapter);
@@ -72,7 +72,8 @@ public class StudentList extends MainActivity {
                     Toast.makeText(StudentList.this,"Estudiante " + nameStdText + " Agregado",Toast.LENGTH_SHORT).show();
                     DataEntryStd dbStd = new DataEntryStd(subjectName, nameStdText, codeStdText, semStdText, mailStdText);
                     mDataEntryDAO.addDataEntryStd(dbStd);
-                    List<DataEntry> entryList = mDataEntryDAO.getAllEntries(DatabaseHandler.TABLE_STD);
+//                    List<DataEntry> entryList = mDataEntryDAO.getAllEntries(DatabaseHandler.TABLE_STD);
+                    List<DataEntry> entryList = mDataEntryDAO.selectStudentBySubject(DatabaseHandler.TABLE_STD, DatabaseHandler.KEY_FIELD_SUBJECT, subjectName);
                     adapter.setData(entryList);
                     listView.setAdapter(adapter);
                     nameStd.setText(null);
@@ -93,9 +94,10 @@ public class StudentList extends MainActivity {
 
     public void onClickBtnDeleteStudent(View view) {
         DataEntryStd dataEntry = (DataEntryStd) view.getTag();
+        final String subjectName = getIntent().getStringExtra("SubjectName");
         Toast.makeText(StudentList.this,"Estudiante " + dataEntry.field2 + " Eliminado",Toast.LENGTH_SHORT).show();
         mDataEntryDAO.deleteEntryStd(dataEntry);
-        List<DataEntry> entryList = mDataEntryDAO.getAllEntries(DatabaseHandler.TABLE_STD);
+        List<DataEntry> entryList = mDataEntryDAO.selectStudentBySubject(DatabaseHandler.TABLE_STD, DatabaseHandler.KEY_FIELD_SUBJECT, subjectName);
         adapter.setData(entryList);
         listView.setAdapter(adapter);
     }
