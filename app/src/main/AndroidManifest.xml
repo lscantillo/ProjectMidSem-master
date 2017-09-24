@@ -30,7 +30,11 @@
             android:label="@string/subject_item1"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".rubricas"
+        <activity android:name=".StudentListByUser"
+            android:label="@string/subject_item2"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".Activity_Create_Rubric"
             android:label="@string/subject_item4"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

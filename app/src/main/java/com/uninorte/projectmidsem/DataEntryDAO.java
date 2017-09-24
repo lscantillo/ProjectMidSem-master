@@ -43,11 +43,11 @@ public class DataEntryDAO {
     // Adding database support to students
     public long addDataEntryStd(DataEntryStd entry) {
         ContentValues values = new ContentValues();
-        values.put(DatabaseHandler.KEY_FIELD_SUBJECT, entry.field0);
-        values.put(DatabaseHandler.KEY_FIELD_STDNAME, entry.field1);
-        values.put(DatabaseHandler.KEY_FIELD_STDCODE, entry.field2);
-        values.put(DatabaseHandler.KEY_FIELD_STDSEM, entry.field3);
-        values.put(DatabaseHandler.KEY_FIELD_STDMAIL, entry.field4);
+        values.put(DatabaseHandler.KEY_FIELD_SUBJECT, entry.stdfield0);
+        values.put(DatabaseHandler.KEY_FIELD_STDNAME, entry.stdfield1);
+        values.put(DatabaseHandler.KEY_FIELD_STDCODE, entry.stdfield2);
+        values.put(DatabaseHandler.KEY_FIELD_STDSEM, entry.stdfield3);
+        values.put(DatabaseHandler.KEY_FIELD_STDMAIL, entry.stdfield4);
 
         Long index = mDatabase.insert(DatabaseHandler.TABLE_STD,null,values);
 
@@ -85,11 +85,11 @@ public class DataEntryDAO {
                     do {
                         DataEntryStd entry = new DataEntryStd();
                         entry.idSubj = Integer.parseInt(cursor.getString(0));
-                        entry.field0 = cursor.getString(0);
-                        entry.field1 = cursor.getString(1);
-                        entry.field2 = cursor.getString(2);
-                        entry.field3 = cursor.getString(3);
-                        entry.field4 = cursor.getString(4);
+                        entry.stdfield0 = cursor.getString(1);
+                        entry.stdfield1 = cursor.getString(2);
+                        entry.stdfield2 = cursor.getString(3);
+                        entry.stdfield3 = cursor.getString(4);
+                        entry.stdfield4 = cursor.getString(5);
                         entryList.add(entry);
                     } while (cursor.moveToNext());
                 }
@@ -182,11 +182,11 @@ public class DataEntryDAO {
             do {
                 DataEntryStd entry = new DataEntryStd();
                 entry.idSubj = Integer.parseInt(cursor.getString(0));
-                entry.field0 = cursor.getString(0);
-                entry.field1 = cursor.getString(1);
-                entry.field2 = cursor.getString(2);
-                entry.field3 = cursor.getString(3);
-                entry.field4 = cursor.getString(4);
+                entry.stdfield0 = cursor.getString(1);
+                entry.stdfield1 = cursor.getString(2);
+                entry.stdfield2 = cursor.getString(3);
+                entry.stdfield3 = cursor.getString(4);
+                entry.stdfield4 = cursor.getString(5);
                 entryList.add(entry);
             } while (cursor.moveToNext());
         }

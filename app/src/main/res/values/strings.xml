@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">ProjectMidSem</string>
+    <string name="app_name">Rubricon</string>
     <string name="subject_item1">Crear Asignatura</string>
+    <string name="subject_item2">Lista de Estudiantes</string>
     <string name="subject_item4">Crear Rubricas</string>
 
 
@@ -15,7 +16,9 @@
     <string name="user_image">user image profile</string>
     <string name="dialogo_meg">El mensaje</string>
     <string name="titulo">El titulo</string>
-
+    <string name="main_description">App diseñada por estudiantes de ingeniería electrónica como proyecto de Programación Móvil.
+    \n \n Luis Cantillo \n Manuel Bojato \n Julian Acosta
+    </string>
 
     <!--String for buttons in subject_list.xml-->
     <string name="btnAddStudentText">Botón Agregar Estudiantes</string>
