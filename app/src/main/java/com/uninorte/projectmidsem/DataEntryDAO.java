@@ -54,6 +54,28 @@ public class DataEntryDAO {
         return index;
     }
 
+    // Adding database support to rubric
+    public long addDataEntryRubric(DataEntryRubric entry) {
+        ContentValues values = new ContentValues();
+        values.put(DatabaseHandler.KEY_FIELD_RUBRIC_NAME, entry.rbcfield0);
+
+        Long index = mDatabase.insert(DatabaseHandler.TABLE_RUBRIC,null,values);
+
+        return index;
+    }
+
+
+    public long addDataEntryCategory(DataEntryCategory entry) {
+        ContentValues values = new ContentValues();
+        values.put(DatabaseHandler.KEY_FIELD_CTG_NAME, entry.catfield0);
+        values.put(DatabaseHandler.KEY_FIELD_CTG_WEIGHT, entry.catfield1);
+//        values.put(DatabaseHandler.KEY_ID_RBC, entry.catfield2);
+
+        Long index = mDatabase.insert(DatabaseHandler.TABLE_CTG,null,values);
+
+        return index;
+    }
+
 
     // Getting All Entries
     public List<DataEntry> getAllEntries(String table_name) {
@@ -90,6 +112,18 @@ public class DataEntryDAO {
                         entry.stdfield2 = cursor.getString(3);
                         entry.stdfield3 = cursor.getString(4);
                         entry.stdfield4 = cursor.getString(5);
+                        entryList.add(entry);
+                    } while (cursor.moveToNext());
+                }
+                cursor.close();
+
+                break;
+            case DatabaseHandler.TABLE_RUBRIC:
+                if (cursor.moveToFirst()) {
+                    do {
+                        DataEntryRubric entry = new DataEntryRubric();
+                        entry.idRubric = Integer.parseInt(cursor.getString(0));
+                        entry.rbcfield0 = cursor.getString(1);
                         entryList.add(entry);
                     } while (cursor.moveToNext());
                 }
@@ -167,6 +201,12 @@ public class DataEntryDAO {
         );
     }
 
+    public void deleteEntryRubric(DataEntryRubric entry) {
+        mDatabase.delete(DatabaseHandler.TABLE_RUBRIC, DatabaseHandler.KEY_ID_RBC + " = ?",
+                new String[] { String.valueOf(entry.idRubric) }
+        );
+    }
+
     // Query student list based on subject name column
     public List<DataEntry> selectStudentBySubject(String table_name, String rowName, String rowQuery) {
         Log.d(TAG, "get student list of subject: " + rowName);
@@ -195,6 +235,5 @@ public class DataEntryDAO {
 
         return entryList;
     }
-
 
 }

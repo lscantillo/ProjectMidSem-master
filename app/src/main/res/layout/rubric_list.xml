@@ -17,7 +17,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvSubjectName"
+                android:id="@+id/tvRubricName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif"
@@ -29,20 +29,21 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/btnCheckStudentList"
+            android:id="@+id/btnEditRubricFields"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onClickBtnCheckStudentList"
-            android:src="@drawable/ic_student"
+            android:onClick="onClickEditRubricFields"
+            android:src="@drawable/ic_assessment"
+            android:tint="@color/colorMainBackground"
             android:contentDescription="@string/btnAddStudentText" />
 
         <ImageButton
-            android:id="@+id/btnDeleteSubject"
+            android:id="@+id/btnDeleteRubric"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onClickBtnDeleteSubject"
+            android:onClick="onClickBtnDeleteRubric"
             android:src="@drawable/ic_remove"
             android:contentDescription="@string/btnRemoveSubjectText" />
 
