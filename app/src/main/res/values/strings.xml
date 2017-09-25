@@ -25,6 +25,10 @@
     <string name="btnRemoveSubjectText">Botón Eliminar Asignatura</string>
     <string name="btnRemoveStudentText">Botón Eliminar Estudiantes</string>
     <string name="tvSubjectNameText">TextView</string>
+
+    <!--Generic strings for whole project-->
     <string name="tvGenericTextView">TextView</string>
+    <string name="addTextBtn">Agregar</string>
+
 
 </resources>

@@ -1,115 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="?attr/actionBarSize"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
-    android:layout_marginTop="?attr/actionBarSize"
-    tools:context="com.uninorte.projectmidsem.Activity_Create_Rubric"
-    android:orientation="horizontal">
-
+    android:background="@color/colorMainBackground"
+    tools:context="com.uninorte.projectmidsem.CreateSubject"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView3"
+        <ListView
+            android:id="@+id/lvRubricList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-
-            android:text="AGREGAR RUBRICAS"
-            android:textAlignment="center"
-            android:textColor="#FFF"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="Niveles (L): 4"
-            android:textAlignment="center"
-            android:textColor="#FFF"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="Categorias"
-            android:textAlignment="center"
-            android:textColor="#FFF"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nombre de Rúbrica: "
-                android:textColor="#FFF"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/nombrerubrica"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:hint="Nombre"
-                android:textColor="@color/colorAccent"
-                android:textColorHint="#FFF" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="Número Categorias: "
-                android:textColor="#FFF"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/numcat"
-                android:layout_width="0dp"
-                android:layout_height="41dp"
-                android:layout_weight="1"
-                android:hint="Numero"
-                android:textColor="@color/colorAccent"
-                android:textColorHint="#FFF" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnaceptarRub"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="Aceptar"
-            android:textColor="#FFF"
-            android:textStyle="bold"
-
-            />
-
+            android:layout_height="match_parent"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            tools:ignore="NestedScrolling" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btnCreateRubric"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickBtnCreateRubric"
+        android:text="@string/addTextBtn" />
 
 </LinearLayout>

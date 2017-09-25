@@ -16,7 +16,7 @@ public class dbrubricas extends SQLiteOpenHelper {
 
     public static class FeedEntry implements BaseColumns {
 
-        public static final String TABLE_NAME = "Activity_Create_Rubric";
+        public static final String TABLE_NAME = "CreateRubric";
         public static final String COLUMN_NAME_CATEGORIAS = "categorias";
 
         private static final String TEXT_TYPE = " TEXT";
