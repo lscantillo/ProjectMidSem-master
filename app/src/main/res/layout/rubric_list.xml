@@ -33,20 +33,28 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/btnAddStudentText"
             android:onClick="onClickEditRubricFields"
             android:src="@drawable/ic_assessment"
-            android:tint="@color/colorMainBackground"
-            android:contentDescription="@string/btnAddStudentText" />
+            android:tint="@color/colorMainBackground" />
 
         <ImageButton
             android:id="@+id/btnDeleteRubric"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/btnRemoveSubjectText"
             android:onClick="onClickBtnDeleteRubric"
-            android:src="@drawable/ic_remove"
-            android:contentDescription="@string/btnRemoveSubjectText" />
+            android:src="@drawable/ic_remove" />
 
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvCategoryList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        tools:ignore="NestedScrolling" />
 
 </LinearLayout>

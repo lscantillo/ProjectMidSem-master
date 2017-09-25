@@ -2,20 +2,20 @@ package com.uninorte.projectmidsem;
 
 public class DataEntryCategory extends DataEntry {
     int idCategory;
-    int catfield0;
+    String catfield0;
     String catfield1;
-    int catfield2;
+    String catfield2;
 
     public DataEntryCategory() {}
 
-    public DataEntryCategory(int id, int field0, String field1, int field2) {
+    public DataEntryCategory(int id, String field0, String field1, String field2) {
         this.idCategory = id;
         this.catfield0 = field0;
         this.catfield1 = field1;
         this.catfield2 = field2;
     }
 
-    public DataEntryCategory(int field0, String field1, int field2) {
+    public DataEntryCategory(String field0, String field1, String field2) {
         this.catfield0 = field0;
         this.catfield1 = field1;
         this.catfield2 = field2;
@@ -29,11 +29,11 @@ public class DataEntryCategory extends DataEntry {
         this.idCategory = id;
     }
 
-    public int get_catfield0() {
+    public String get_catfield0() {
         return catfield0;
     }
 
-    public void set_catfield0(int field0) {
+    public void set_catfield0(String field0) {
         this.catfield0 = field0;
     }
 
@@ -45,11 +45,11 @@ public class DataEntryCategory extends DataEntry {
         this.catfield1 = field1;
     }
 
-    public int get_catfield2() {
+    public String get_catfield2() {
         return catfield2;
     }
 
-    public void set_catfield2(int field2) {
+    public void set_catfield2(String field2) {
         this.catfield2 = field2;
     }
 

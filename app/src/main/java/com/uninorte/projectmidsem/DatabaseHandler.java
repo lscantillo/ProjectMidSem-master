@@ -76,7 +76,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String CREATE_TABLE_CATEGORY = "CREATE TABLE " + TABLE_CTG + " (" +
                 KEY_ID_CTG + " integer primary key," +
                 KEY_ID_RBC + " integer," +
-                KEY_FIELD_CTG_NAME + " text," +
+                KEY_FIELD_CTG_NAME + " integer," +
                 KEY_FIELD_CTG_WEIGHT + " integer," +
                 "foreign key(" + KEY_ID_RBC + ")" + " references " + TABLE_RUBRIC + "(" + KEY_ID_RBC + ") " +
                 ") ";

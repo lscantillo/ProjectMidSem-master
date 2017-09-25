@@ -67,9 +67,9 @@ public class DataEntryDAO {
 
     public long addDataEntryCategory(DataEntryCategory entry) {
         ContentValues values = new ContentValues();
-        values.put(DatabaseHandler.KEY_FIELD_CTG_NAME, entry.catfield0);
-        values.put(DatabaseHandler.KEY_FIELD_CTG_WEIGHT, entry.catfield1);
-//        values.put(DatabaseHandler.KEY_ID_RBC, entry.catfield2);
+        values.put(DatabaseHandler.KEY_FIELD_CTG_NAME, entry.catfield1);
+        values.put(DatabaseHandler.KEY_FIELD_CTG_WEIGHT, entry.catfield2);
+        values.put(DatabaseHandler.KEY_ID_RBC, entry.catfield0);
 
         Long index = mDatabase.insert(DatabaseHandler.TABLE_CTG,null,values);
 
@@ -124,6 +124,20 @@ public class DataEntryDAO {
                         DataEntryRubric entry = new DataEntryRubric();
                         entry.idRubric = Integer.parseInt(cursor.getString(0));
                         entry.rbcfield0 = cursor.getString(1);
+                        entryList.add(entry);
+                    } while (cursor.moveToNext());
+                }
+                cursor.close();
+
+                break;
+            case DatabaseHandler.TABLE_CTG:
+                if (cursor.moveToFirst()) {
+                    do {
+                        DataEntryCategory entry = new DataEntryCategory();
+                        entry.idCategory = Integer.parseInt(cursor.getString(0));
+                        entry.catfield0 = cursor.getString(1);
+                        entry.catfield1 = cursor.getString(2);
+                        entry.catfield2 = cursor.getString(3);
                         entryList.add(entry);
                     } while (cursor.moveToNext());
                 }
@@ -229,6 +243,75 @@ public class DataEntryDAO {
                 entry.stdfield4 = cursor.getString(5);
                 entryList.add(entry);
             } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+
+        return entryList;
+    }
+
+    public List<DataEntry> selectAllTable (String table_name) {
+        List<DataEntry> entryList = new ArrayList<>();
+
+        String selectQuery = "SELECT * FROM " + table_name;
+
+        Cursor cursor = mDatabase.rawQuery(selectQuery, null);
+
+        switch (table_name) {
+            case DatabaseHandler.TABLE:
+                if (cursor.moveToFirst()) {
+                    do {
+                        DataEntry entry = new DataEntry();
+                        entry.id = Integer.parseInt(cursor.getString(0));
+                        entry.field1 = cursor.getString(1);
+                        entryList.add(entry);
+                    } while (cursor.moveToNext());
+                }
+                cursor.close();
+
+                break;
+            case DatabaseHandler.TABLE_STD:
+                if (cursor.moveToFirst()) {
+                    do {
+                        DataEntryStd entry = new DataEntryStd();
+                        entry.idSubj = Integer.parseInt(cursor.getString(0));
+                        entry.stdfield0 = cursor.getString(1);
+                        entry.stdfield1 = cursor.getString(2);
+                        entry.stdfield2 = cursor.getString(3);
+                        entry.stdfield3 = cursor.getString(4);
+                        entry.stdfield4 = cursor.getString(5);
+                        entryList.add(entry);
+                    } while (cursor.moveToNext());
+                }
+                cursor.close();
+
+                break;
+            case DatabaseHandler.TABLE_RUBRIC:
+                if (cursor.moveToFirst()) {
+                    do {
+                        DataEntryRubric entry = new DataEntryRubric();
+                        entry.idRubric = Integer.parseInt(cursor.getString(0));
+                        entry.rbcfield0 = cursor.getString(1);
+                        entryList.add(entry);
+                    } while (cursor.moveToNext());
+                }
+                cursor.close();
+
+                break;
+            case DatabaseHandler.TABLE_CTG:
+                if (cursor.moveToFirst()) {
+                    do {
+                        DataEntryCategory entry = new DataEntryCategory();
+                        entry.idCategory = Integer.parseInt(cursor.getString(0));
+                        entry.catfield0 = cursor.getString(1);
+                        entry.catfield1 = cursor.getString(2);
+                        entry.catfield2 = cursor.getString(3);
+                        entryList.add(entry);
+                    } while (cursor.moveToNext());
+                }
+                cursor.close();
+
+                break;
         }
 
         cursor.close();

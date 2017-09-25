@@ -27,6 +27,7 @@
 
     <!--String for rubric elements-->
     <string name="newRubricTitle">Nueva Rubrica</string>
+    <string name="newCategoryTitle">Nueva Categoria</string>
     <string name="mainRubricName">Nombre Rubrica</string>
     <string name="mainCategoryNameText">Nombre Categoria</string>
     <string name="mainCategoryWeightText">Peso Categoria</string>
@@ -41,5 +42,6 @@
     <string name="tvGenericTextView">TextView</string>
     <string name="addTextBtn">Agregar</string>
     <string name="mainTitleText">Nombre</string>
+    <string name="mainWeightText">Peso</string>
 
 </resources>
