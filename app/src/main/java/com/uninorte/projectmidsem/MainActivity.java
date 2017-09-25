@@ -2,7 +2,6 @@ package com.uninorte.projectmidsem;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,12 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -67,9 +62,9 @@ public class MainActivity extends AppCompatActivity  {
                     case 1:
                         switch (i1) {
                             case 0:
-                                Intent in10 = new Intent(MainActivity.this, Activity_Create_Rubric.class);
+                                Intent in10 = new Intent(MainActivity.this, CreateRubric.class);
                                 startActivity(in10);
-//                                Log.d("DEBUG", "Hicieron click en crear Activity_Create_Rubric");
+//                                Log.d("DEBUG", "Hicieron click en crear CreateRubric");
                                 break;
                             case 1:
                                 break;
@@ -130,8 +125,8 @@ public class MainActivity extends AppCompatActivity  {
         heading1.add("Asignar evaluación");
 
         List<String> heading2 = new ArrayList<>();
-        heading2.add("Crear Activity_Create_Rubric");
-        heading2.add("Lista Activity_Create_Rubric");
+        heading2.add("Crear rubrica");
+        heading2.add("Lista rubrica");
 
         List<String> heading3 = new ArrayList<>();
         heading3.add("Opcion 1");

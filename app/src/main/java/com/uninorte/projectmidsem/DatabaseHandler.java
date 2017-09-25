@@ -18,6 +18,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Table Names
     public static final String TABLE = "subjectTable";
     public static final String TABLE_STD = "studentTable";
+    public static final String TABLE_RUBRIC = "rubricTable";
 
     // Table Columns Names for Subjects
     public static final String KEY_ID = "subjectId";

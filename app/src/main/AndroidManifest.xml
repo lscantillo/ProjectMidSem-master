@@ -34,7 +34,7 @@
             android:label="@string/subject_item2"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".Activity_Create_Rubric"
+        <activity android:name=".CreateRubric"
             android:label="@string/subject_item4"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
