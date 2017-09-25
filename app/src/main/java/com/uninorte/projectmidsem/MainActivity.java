@@ -70,6 +70,18 @@ public class MainActivity extends AppCompatActivity  {
                                 break;
                         }
                         break;
+
+                    case 2:
+                        switch (i1) {
+                            case 0:
+                                Intent in20 = new Intent(MainActivity.this, evaluations.class);
+                                startActivity(in20);
+//                                Log.d("DEBUG", "Hicieron click en crear CreateRubric");
+                                break;
+                            case 1:
+                                break;
+                        }
+                        break;
                 }
 //                Log.d("DEBUG", "submenu item clicked " + i + " " + i1 + " ");
                 return false;
@@ -129,7 +141,7 @@ public class MainActivity extends AppCompatActivity  {
         heading2.add("Lista rubrica");
 
         List<String> heading3 = new ArrayList<>();
-        heading3.add("Opcion 1");
+        heading3.add("Agregar Evaluación");
         heading3.add("Opcion 2");
 
         listDataChild.put(listDataHeader.get(0), heading1);// Header, Child data
