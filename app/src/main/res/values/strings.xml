@@ -24,11 +24,22 @@
     <string name="btnAddStudentText">Botón Agregar Estudiantes</string>
     <string name="btnRemoveSubjectText">Botón Eliminar Asignatura</string>
     <string name="btnRemoveStudentText">Botón Eliminar Estudiantes</string>
-    <string name="tvSubjectNameText">TextView</string>
+
+    <!--String for rubric elements-->
+    <string name="newRubricTitle">Nueva Rubrica</string>
+    <string name="mainRubricName">Nombre Rubrica</string>
+    <string name="mainCategoryNameText">Nombre Categoria</string>
+    <string name="mainCategoryWeightText">Peso Categoria</string>
+    <string name="mainElementNameText">Nombre Elemento</string>
+    <string name="mainElementWeightText">Peso Elemento</string>
+    <string name="mainElementOneText">Nivel 1</string>
+    <string name="mainElementTwoText">Nivel 2</string>
+    <string name="mainElementThreeText">Nivel 3</string>
+    <string name="mainElementFourText">Nivel 4</string>
 
     <!--Generic strings for whole project-->
     <string name="tvGenericTextView">TextView</string>
     <string name="addTextBtn">Agregar</string>
-
+    <string name="mainTitleText">Nombre</string>
 
 </resources>

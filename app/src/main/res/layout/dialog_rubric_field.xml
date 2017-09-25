@@ -6,82 +6,100 @@
     android:padding="5dp">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tvTitleRubric"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Categorias"
+        android:text="@string/newRubricTitle"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/etNameRubric"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Nombre"
+        android:hint="@string/mainRubricName"
         android:inputType="textPersonName"
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/etCategoryRubric"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Peso"
+        android:hint="@string/mainCategoryNameText"
+        android:inputType="textPersonName"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/etCategoryWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/mainCategoryWeightText"
         android:inputType="number"
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/etElementName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Elemento"
+        android:hint="@string/mainElementNameText"
         android:inputType="textPersonName"
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/etElementWeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Nivel 1"
+        android:hint="@string/mainElementWeightText"
+        android:inputType="number"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/etLevelOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/mainElementOneText"
         android:inputType="textPersonName"
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/etLevelTwo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Nivel 2"
+        android:hint="@string/mainElementTwoText"
         android:inputType="textPersonName"
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/etLevelThree"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Nivel 3"
+        android:hint="@string/mainElementThreeText"
         android:inputType="textPersonName"
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/editText8"
+        android:id="@+id/etLevelFour"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Nivel 4"
+        android:hint="@string/mainElementFourText"
         android:inputType="textPersonName"
         android:textAlignment="center" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnNewRubric"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Agregar"
+        android:text="@string/addTextBtn"
         android:textStyle="bold" />
 </LinearLayout>

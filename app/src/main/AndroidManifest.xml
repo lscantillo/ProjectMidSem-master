@@ -39,11 +39,6 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name=".categorias"
-            android:label="@string/subject_item10"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
         <activity android:name=".StudentList"
             android:label="Lista Estudiantes"
             android:theme="@style/AppTheme.NoActionBar">
