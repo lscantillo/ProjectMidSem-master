@@ -38,6 +38,13 @@
     <string name="mainElementThreeText">Nivel 3</string>
     <string name="mainElementFourText">Nivel 4</string>
 
+    <!--String for rubric elements-->
+    <string name="newEvalTitle">Nueva Evaluacion</string>
+    <string name="mainTitleEval">Nombre Evaluacion</string>
+    <string name="mainTitlePeso">Peso</string>
+
+
+
     <!--Generic strings for whole project-->
     <string name="tvGenericTextView">TextView</string>
     <string name="addTextBtn">Agregar</string>

@@ -3,6 +3,7 @@
     package="com.uninorte.projectmidsem">
 
     <application
+        android:name="com.orm.SugarApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,30 +20,44 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-
+            <meta-data
+                android:name="DATABASE"
+                android:value="evalDB.db" />
+            <meta-data
+                android:name="VERSION"
+                android:value="2" />
+            <meta-data
+                android:name="QUERY_LOG"
+                android:value="true" />
+            <meta-data
+                android:name="DOMAIN_PACKAGE_NAME"
+                android:value="com.uninorte.projectmidsem" />
         </activity>
-        <activity android:name=".CreateSubject"
+        <activity
+            android:name=".CreateSubject"
             android:label="@string/subject_item1"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".StudentListByUser"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".StudentListByUser"
             android:label="@string/subject_item2"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".CreateRubric"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".CreateRubric"
             android:label="@string/subject_item4"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+        android:name=".StudentList"
+        android:label="Lista Estudiantes"
+        android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        <activity android:name=".StudentList"
-            android:label="Lista Estudiantes"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+        <activity android:name=".evaluations"
+            android:label="Lista Evaluaciones"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
 
     </application>
 
